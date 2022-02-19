@@ -23,11 +23,9 @@ async function generate() {
         message: 'Where\'s the code at?'
     }])
     const templateContents = await fs.readFile('./template/template.html')
-    const newTemplateContents = templateContents.toString()
-        .replace('{{name}}', answers.name)
-        .replace('{{location}}', answers.location)
-        .replace('{{bio}}', answers.bio)
-        .replace('{{github}}', answers.github)
+    const newTemplateContents = Object
+        .keys(answers)
+        .reduce((previous, current) => previous.replace(`{{${current}}}`, answers[current]), templateContents.toString())
     await fs.writeFile('index.html', newTemplateContents)
 }
 
