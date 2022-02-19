@@ -5,7 +5,6 @@ const inquirer = require('inquirer');
 const { promises: fs } = require('fs');
 
 async function generate() {
-/*
     const answers = await inquirer.prompt([{
         type: 'input',
         name: 'name',
@@ -23,9 +22,13 @@ async function generate() {
         name: 'github',
         message: 'Where\'s the code at?'
     }])
-    */
     const templateContents = await fs.readFile('./template/template.html')
-    console.log(templateContents.toString())
+    const newTemplateContents = templateContents.toString()
+        .replace('{{name}}', answers.name)
+        .replace('{{location}}', answers.location)
+        .replace('{{bio}}', answers.bio)
+        .replace('{{github}}', answers.github)
+    console.log(newTemplateContents)
 }
 
 generate()
