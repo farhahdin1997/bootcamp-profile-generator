@@ -2,15 +2,10 @@
 // Fill out the template with the stuff
 // Write the templated file to index.html
 const inquirer = require('inquirer');
+const { promises: fs } = require('fs');
 
 async function generate() {
-    /*
-
-<p>{{name}}</p>
-<p>{{location}}</p>
-<p>{{bio}}</p>
-<p>{{github}}</p>
-*/
+/*
     const answers = await inquirer.prompt([{
         type: 'input',
         name: 'name',
@@ -28,7 +23,9 @@ async function generate() {
         name: 'github',
         message: 'Where\'s the code at?'
     }])
-    console.log(answers)
+    */
+    const templateContents = await fs.readFile('./template/template.html')
+    console.log(templateContents.toString())
 }
 
 generate()
