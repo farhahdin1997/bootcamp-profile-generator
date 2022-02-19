@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/skewwhiffy/bootcamp-profile-generator/issues"
   },
-  "homepage": "https://github.com/skewwhiffy/bootcamp-profile-generator#readme"
+  "homepage": "https://github.com/skewwhiffy/bootcamp-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }
